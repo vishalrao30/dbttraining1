@@ -32,8 +32,11 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  Analytics:
-    JAFFLE_SHOP:
-      materialized: view
+  sql_header: "alter session set timezone = 'Asia/Kolkata';"
+  materialized: table
     # Applies to all files under models/example/
-    
+vars:
+  CustID: '50'
+  
+seeds:
+  schema: SEED_DATA
