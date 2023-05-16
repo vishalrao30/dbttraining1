@@ -1,4 +1,4 @@
-
+ 
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
@@ -32,7 +32,11 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  my_new_project:
+  sql_header: "alter session set timezone = 'Asia/Kolkata';"
+  materialized: table
     # Applies to all files under models/example/
-    example:
-      materialized: view
+vars:
+  CustID: '50'
+  
+seeds:
+  schema: SEED_DATA
